@@ -37,6 +37,11 @@ public class JsonFile {
         jsonObj = JsonTokener.getObject(JSON_FILE);
     }
 
+    /**
+     * Update the the entity of Json File.
+     *
+     * if change {@code jsonObj}, must be called.
+     */
     public void save(){
         try{
             FileWriter w = new FileWriter(JSON_FILE, false);
