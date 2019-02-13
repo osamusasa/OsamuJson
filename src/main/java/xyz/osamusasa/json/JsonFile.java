@@ -1,6 +1,6 @@
 package xyz.osamusasa.json;
 
-import jdk.internal.jline.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -51,5 +51,14 @@ public class JsonFile {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Returns a sequential {@code Stream} with this collection as its source.
+     *
+     * @return a sequential {@code Stream} over the elements in this collection.
+     */
+    public JsonStream<JsonObject> stream() {
+        return jsonObj.stream();
     }
 }

@@ -37,4 +37,12 @@ public class JsonArray implements JsonToken {
         str.append(']');
         return str.toString();
     }
+    @Override
+    public int size(){
+        return list.size();
+    }
+    @Override
+    public JsonStream<JsonArray> stream(){
+        return new JsonStream<>(this);
+    }
 }

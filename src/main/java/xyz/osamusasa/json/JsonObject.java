@@ -3,6 +3,7 @@ package xyz.osamusasa.json;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 public class JsonObject implements JsonToken,Iterator<JsonString>,Iterable<JsonString>{
     private HashMap<JsonString, Integer> map;
@@ -20,7 +21,7 @@ public class JsonObject implements JsonToken,Iterator<JsonString>,Iterable<JsonS
 
     @Override
     public boolean hasNext(){
-        return pos < key.size();
+        return pos < size();
     }
 
     @Override
@@ -114,5 +115,25 @@ public class JsonObject implements JsonToken,Iterator<JsonString>,Iterable<JsonS
         }
         str.append('}');
         return str.toString();
+    }
+
+    /**
+     * Returns a sequential {@code Stream} with this collection as its source.
+     *
+     * @return a sequential {@code Stream} over the elements in this collection.
+     */
+    @Override
+    public JsonStream<JsonObject> stream(){
+        return new JsonStream<>(this);
+    }
+
+    /**
+     * Return the number of Value.
+     *
+     * @return the the number of Value.
+     */
+    @Override
+    public int size(){
+        return key.size();
     }
 }
