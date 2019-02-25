@@ -41,8 +41,4 @@ public class JsonArray implements JsonToken {
     public int size(){
         return list.size();
     }
-    @Override
-    public JsonStream<JsonArray> stream(){
-        return new JsonStream<>(this);
-    }
 }

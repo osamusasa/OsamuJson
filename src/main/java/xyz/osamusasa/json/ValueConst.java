@@ -14,10 +14,6 @@ public class ValueConst implements JsonToken {
     public int size(){
         return 1;
     }
-    @Override
-    public JsonStream<ValueConst> stream(){
-        return new JsonStream<>(this);
-    }
     @Override public String toString(){
         return value[pointer];
     }

@@ -52,13 +52,4 @@ public class JsonFile {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Returns a sequential {@code Stream} with this collection as its source.
-     *
-     * @return a sequential {@code Stream} over the elements in this collection.
-     */
-    public JsonStream<JsonObject> stream() {
-        return jsonObj.stream();
-    }
 }

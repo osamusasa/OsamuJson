@@ -42,10 +42,6 @@ public class JsonString implements JsonToken {
     public int size(){
         return 1;
     }
-    @Override
-    public JsonStream<JsonString> stream(){
-        return new JsonStream<>(this);
-    }
     public String getValue(){
         return this.str;
     }

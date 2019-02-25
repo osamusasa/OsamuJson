@@ -8,13 +8,6 @@ public interface JsonToken {
      */
     int size();
 
-    /**
-     * Returns a sequential {@code Stream} with this token as its source.
-     *
-     * @return a sequential {@code Stream} over the elements in this token.
-     */
-    JsonStream stream();
-
     String print();
 
     default JsonToken createValue(JsonTokener tokener){

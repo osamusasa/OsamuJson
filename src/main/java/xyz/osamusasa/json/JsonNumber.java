@@ -30,10 +30,6 @@ public class JsonNumber implements JsonToken {
     public int size(){
         return 1;
     }
-    @Override
-    public JsonStream<JsonNumber> stream(){
-        return new JsonStream<>(this);
-    }
     public int getValue(){
         return Integer.parseInt(this.num);
     }
