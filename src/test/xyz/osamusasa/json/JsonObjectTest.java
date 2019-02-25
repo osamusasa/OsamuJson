@@ -36,21 +36,66 @@ class JsonObjectTest {
 
     @Test
     void create1() {
-        Assert.assertEquals(
-                new JsonTokener("{}").getObject().print(),
-                JsonObject.create(new JsonTokener("{}")).print()
-        );
+        String nul = "{}";
         String jsonStr = "{\"str\":\"ok\"}";
-        Assert.assertEquals(
-                jsonStr,
-                JsonObject.create(new JsonTokener(jsonStr)).print()
+        String jsonInt = "{\"int\":0}";
+        String jsonObj = "{\"obj\":{\"str\":\"ok\"}}";
+        String jsonArr = "{\"array\":[\"str\",\"int\",\"etc\"]}";
+        String jsonCst = "{\"const\":false}";
+        String jsonAll = "{\"str\":\"ok\",\"int\":0,\"obj\":{\"str\":\"ok\"},\"array\":[\"str\",\"int\",\"etc\"],\"const\":true}";
+
+        assertAll(
+                "create",
+                ()->assertEquals(
+                        new JsonTokener(nul).getObject().print(),
+                        JsonObject.create(new JsonTokener(nul)).print(),
+                        "nul"
+                ),
+                ()->assertEquals(
+                        jsonStr,
+                        JsonObject.create(new JsonTokener(jsonStr)).print(),
+                        "str"
+                ),
+                ()->assertEquals(
+                        jsonInt,
+                        JsonObject.create(new JsonTokener(jsonInt)).print(),
+                        "int"
+                ),
+                ()->assertEquals(
+                        jsonObj,
+                        JsonObject.create(new JsonTokener(jsonObj)).print(),
+                        "obj"
+                ),
+                ()->assertEquals(
+                        jsonArr,
+                        JsonObject.create(new JsonTokener(jsonArr)).print(),
+                        "arr"
+                ),
+                ()->assertEquals(
+                        jsonCst,
+                        JsonObject.create(new JsonTokener(jsonCst)).print(),
+                        "const"
+                ),
+                ()->assertEquals(
+                        jsonAll,
+                        JsonObject.create(new JsonTokener(jsonAll)).print(),
+                        "all"
+                )
         );
 
+
+
+
+
+
+
+
+/*
         String json = "{\"str\":\"ok\",\"int\":0,\"obj\":{\"str\":\"ok\"},\"array\":[\"str\",\"int\",\"etc\"],\"const\":true}";
         Assert.assertEquals(
                 json,
                 JsonObject.create(new JsonTokener(json)).print()
-        );
+        );*/
     }
 
     @Test

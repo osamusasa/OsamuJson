@@ -6,7 +6,7 @@ public class ValueConst implements JsonToken {
     private int pointer;
 
     ValueConst(int pointer){
-        if(pointer<0&&1<pointer)this.pointer=2;
+        if(pointer<0||2<pointer)this.pointer=2;
         else this.pointer = pointer;
     }
 
